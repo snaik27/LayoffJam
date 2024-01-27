@@ -31,6 +31,11 @@ public class Deck : MonoBehaviour
 
     public void Discard(Card card)
     {
+        if (!_cards.Contains(card))
+        {
+            throw new System.InvalidOperationException($"Can't discard a card that isn't in the deck: {card}");
+        }
+
         _cards.Remove(card);
         _discard.Add(card);
     }
@@ -54,20 +59,20 @@ public class Deck : MonoBehaviour
         return cards;
     }
 
-    private static void LoadJokesFromTextAsset(TextAsset textAsset, List<Card> cards, Card.Trait trait)
+    private static void LoadJokesFromTextAsset(TextAsset textAsset, List<Card> cards, Card.Trait jokeType)
     {
         string[] lines = textAsset.text.Split("\n");
         foreach (string line in lines)
         {
             string[] parts = line.Split(" - ");
-            string jokeType = parts[0].Trim();
+            string traits = parts[0].Trim();
             parts = parts[1].Split(" // ");
             string setup = parts[0].Trim();
             string punchline = parts[1].Trim();
 
-            Card.Trait trait1 = Card.CharToTrait(jokeType[0]);
-            Card.Trait trait2 = Card.CharToTrait(jokeType[1]);
-            cards.Add(new Card(trait1, trait2, trait, setup, punchline));
+            Card.Trait trait1 = (Card.Trait)traits[0];
+            Card.Trait trait2 = (Card.Trait)traits[1];
+            cards.Add(new Card(trait1, trait2, jokeType, setup, punchline));
         }
     }
 }
