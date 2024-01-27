@@ -1,15 +1,10 @@
 using SidTools;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Yarn.Unity;
+
 
 public class GameStateManager : MonoBehaviour
 {
-    [SerializeField] private MusicManager _musicManager;
-    [SerializeField] private DialogueRunner _dialogueRunner;
+    [SerializeField] private MusicManager _musicManager; 
     [SerializeField] private MainLoopManager _mainLoopManager;
 
     public static GameStateManager _instance;
@@ -46,8 +41,7 @@ public class GameStateManager : MonoBehaviour
     /// </summary>
     private void Boot_Start()
     {
-        _musicManager.gameObject.SetActive(true);
-        _dialogueRunner.gameObject.SetActive(true);
+        _musicManager.gameObject.SetActive(true); 
         _mainLoopManager.gameObject.SetActive(true);
 
         _musicManager.PlayOpeningTrack();
