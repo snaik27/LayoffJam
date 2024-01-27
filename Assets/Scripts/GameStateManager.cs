@@ -12,6 +12,7 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] private DialogueRunner _dialogueRunner;
     [SerializeField] private MainLoopManager _mainLoopManager;
 
+    public static GameStateManager _instance;
     public enum GameState
     {
         Boot,
@@ -25,6 +26,7 @@ public class GameStateManager : MonoBehaviour
 
     private void Start()
     {
+        _instance = this;
         _gameStateMachine = new StateMachine<GameState>(GameState.Boot, machine =>
         {
             machine.ConfigureState(GameState.Boot, Boot_Start, null, null);
