@@ -12,13 +12,17 @@ public class Deck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // generate deck
         _cards = ReadCards();
         _discard = new List<Card>();
     }
 
     public Card[] DrawCards()
     {
+        if (_cards.Count < 3)
+        {
+            throw new System.InvalidOperationException("You need at least 3 cards!");
+        }
+
         Shuffle();
         return new Card[] { _cards[0], _cards[1], _cards[2] };
     }

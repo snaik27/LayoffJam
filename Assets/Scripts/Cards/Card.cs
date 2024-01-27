@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Card
 {
-    // pysical verbal
-    // 6 descriptors?
-    // dark crude silly pun reference slapstick
     public enum Trait
     {
         Dark,
@@ -23,6 +20,7 @@ public class Card
     public readonly Trait Trait1;
     public readonly Trait Trait2;
     public readonly Trait Trait3;
+
     public readonly string Setup;
     public readonly string Punchline;
 
@@ -38,6 +36,11 @@ public class Card
         Trait3 = trait3;
         Setup = setup;
         Punchline = punchline;
+    }
+
+    public bool HasTrait(Trait trait)
+    {
+        return Trait1 == trait || Trait2 == trait || Trait3 == trait;
     }
 
     public override string ToString()
