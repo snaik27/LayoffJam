@@ -45,7 +45,7 @@ public class Card
 
     public override string ToString()
     {
-        return $"{Trait1}\t{Trait2}\t{Trait3}\n{Setup}\n{Punchline}";
+        return $"[{Trait1},{Trait2},{Trait3}] {Setup}; {Punchline}";
     }
 
     public static Trait CharToTrait(char c)

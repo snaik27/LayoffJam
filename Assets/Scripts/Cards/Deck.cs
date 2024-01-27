@@ -14,6 +14,8 @@ public class Deck : MonoBehaviour
     {
         _cards = ReadCards();
         _discard = new List<Card>();
+
+        Debug.Log(string.Join("\n", _cards));
     }
 
     public Card[] DrawCards()
