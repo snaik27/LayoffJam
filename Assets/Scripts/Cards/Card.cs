@@ -44,4 +44,18 @@ public class Card
     {
         return $"{Trait1}\t{Trait2}\t{Trait3}\n{Setup}\n{Punchline}";
     }
+
+    public static Trait CharToTrait(char c)
+    {
+        return c switch
+        {
+            'A' => Trait.Dark,
+            'B' => Trait.Silly,
+            'C' => Trait.Reference,
+            'D' => Trait.Pun,
+            'E' => Trait.Crude,
+            'F' => Trait.Slapstick,
+            _ => throw new ArgumentException($"No trait for {c}"),
+        };
+    }
 }

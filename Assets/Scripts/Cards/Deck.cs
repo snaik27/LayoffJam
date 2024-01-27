@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
@@ -9,22 +6,36 @@ public class Deck : MonoBehaviour
     public TextAsset verbalJokes;
     public TextAsset physicalJokes;
 
+    private List<Card> _cards;
+    private List<Card> _discard;
+
     // Start is called before the first frame update
     void Start()
     {
         // generate deck
-        List<Card> cards = ReadCards();
-
-        Debug.Log($"{cards.Count} cards");
-
-        Debug.Log(string.Join("\n\n", cards));
-
+        _cards = ReadCards();
+        _discard = new List<Card>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public Card[] DrawCards()
     {
-        
+        Shuffle();
+        return new Card[] { _cards[0], _cards[1], _cards[2] };
+    }
+
+    public void Discard(Card card)
+    {
+        _cards.Remove(card);
+        _discard.Add(card);
+    }
+
+    private void Shuffle()
+    {
+        for (int i = 0; i < _cards.Count; i++)
+        {
+            int swapIdx = Random.Range(0, _cards.Count);
+            (_cards[i], _cards[swapIdx]) = (_cards[swapIdx], _cards[i]);
+        }
     }
 
     private List<Card> ReadCards()
@@ -48,23 +59,9 @@ public class Deck : MonoBehaviour
             string setup = parts[0].Trim();
             string punchline = parts[1].Trim();
 
-            Card.Trait trait1 = CharToTrait(jokeType[0]);
-            Card.Trait trait2 = CharToTrait(jokeType[1]);
+            Card.Trait trait1 = Card.CharToTrait(jokeType[0]);
+            Card.Trait trait2 = Card.CharToTrait(jokeType[1]);
             cards.Add(new Card(trait1, trait2, trait, setup, punchline));
         }
-    }
-
-    private static Card.Trait CharToTrait(char c)
-    {
-        return c switch
-        {
-            'A' => Card.Trait.Dark,
-            'B' => Card.Trait.Silly,
-            'C' => Card.Trait.Reference,
-            'D' => Card.Trait.Pun,
-            'E' => Card.Trait.Crude,
-            'F' => Card.Trait.Slapstick,
-            _ => throw new ArgumentException($"No trait for {c}"),
-        };
     }
 }
