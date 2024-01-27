@@ -68,6 +68,15 @@ public class MainLoopManager : MonoBehaviour
     private void GuestReaction_Start()
     {
         
+        if(_currentRound < _totalRounds)
+        {
+            _currentRound++;
+        }
+        else
+        {
+            _currentRound = 0;
+            _mainLoopMachine.SetState(MainLoopState.LoopEnd);
+        }
     }
 
     private void LoopEnd_Start()
