@@ -3,12 +3,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class GameStateManager : MonoBehaviour
 {
 
     [SerializeField] private MusicManager _musicManager;
-
+    [SerializeField] private DialogueRunner _dialogueRunner;
     public enum GameState
     {
         Boot,
@@ -35,6 +36,7 @@ public class GameStateManager : MonoBehaviour
         });
     }
 
+
     /// <summary>
     /// Load all the things:
     /// 1. Music/SFX
@@ -43,6 +45,9 @@ public class GameStateManager : MonoBehaviour
     /// </summary>
     private void Boot_Start()
     {
+        _musicManager.gameObject.SetActive(true);
+        _dialogueRunner.gameObject.SetActive(true);
+
         _musicManager.PlayOpeningTrack();
     }
 
@@ -59,8 +64,8 @@ public class GameStateManager : MonoBehaviour
     /// </summary>
     private void Main_Start()
     {
-
-    }
+        // main card choose/reaction loop
+    } 
 
     private void Outro_Start()
     {
