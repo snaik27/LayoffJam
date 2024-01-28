@@ -9,6 +9,8 @@ public class MainLoopManager : MonoBehaviour
     public int _currentRound = 0;
     public int _totalRounds = 5;
     public Deck _cardDeck;
+    public Guest _currentGuest;
+    public CardAndDialogueUI _cardAndDialogueUI;
 
     public enum MainLoopState
     {
