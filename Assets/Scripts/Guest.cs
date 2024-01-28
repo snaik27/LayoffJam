@@ -7,13 +7,12 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(GuestReactions))]
 public class Guest : MonoBehaviour
 {
-    public string Name { private set; get; }
+    public string Name = "";
     private Disposition[] _dispositions;
     private GuestReactions _reactions;
 
     public void GenerateRandomGuest()
-    {
-        Name = "King";
+    { 
         GenerateDispositions();
         _reactions = GetComponent<GuestReactions>();
     }
