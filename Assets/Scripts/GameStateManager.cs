@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
-    [SerializeField] public int _winThresholdInteger = 5;
+    [SerializeField] public int _winThresholdInteger = 3;
 
     [SerializeField] public MusicManager _musicManager; 
     [SerializeField] public MainLoopManager _mainLoopManager;
@@ -89,13 +89,15 @@ public class GameStateManager : MonoBehaviour
     private void Main_Start()
     {
         _mainLoopManager.StartMainLoop();
+        Debug.Log(_scoreManager.TotalScore.ToString());
     } 
 
     private void Outro_Start()
     {
         Debug.Log("gamestatemanager at outro");
         _gameEndMenu.gameObject.SetActive(true);
-        if (_scoreManager.TotalScore >= _winThresholdInteger)
+        bool wonGame = _scoreManager.TotalScore >= _winThresholdInteger;
+        if (wonGame)
         {
             _gameEndMenu.SetWinText("King: You keep your life!");
         }
@@ -105,5 +107,6 @@ public class GameStateManager : MonoBehaviour
         }
 
         _gameEndMenu.SetScoreText(_scoreManager.TotalScore.ToString());
+        _gameEndMenu.SetPlayAgainButtonText(wonGame);
     }
 }

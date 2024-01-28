@@ -92,6 +92,7 @@ public class MainLoopManager : MonoBehaviour
     public void StartMainLoop()
     {
         _currentRound = 0;
+        _scoreManager.TotalScore = 0;
         _cardDeck.CreateRandomDeck();
         _currentGuest.GenerateRandomGuest();
         _characters._characterList.NextCharacter();
