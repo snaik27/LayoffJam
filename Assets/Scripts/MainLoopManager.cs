@@ -7,8 +7,8 @@ using UnityEngine;
 public class MainLoopManager : MonoBehaviour
 {
 
-    [HideInInspector] private int _currentRound = 0;
-    [HideInInspector] private int _totalRounds = 5;
+    [SerializeField] private int _currentRound = 0;
+    [SerializeField] private int _totalRounds = 4;
     private Deck _cardDeck;
     private Guest _currentGuest;
     private CardAndDialogueUI _cardAndDialogueUI;
@@ -24,7 +24,6 @@ public class MainLoopManager : MonoBehaviour
         JesterJokePunchline,        //Click to advance
         GuestReaction,              //Click to advance
         LoopEnd                     //Guest/King tell you if you live or not
-
     }
 
     public StateMachine<MainLoopState> _mainLoopMachine;
@@ -46,6 +45,10 @@ public class MainLoopManager : MonoBehaviour
         else if(_mainLoopMachine.CurrentState == MainLoopState.JesterJokePunchline)
         {
             _mainLoopMachine.SetState(MainLoopState.GuestReaction);
+        }
+        else if(_mainLoopMachine.CurrentState == MainLoopState.GuestReaction)
+        {
+            _mainLoopMachine.SetState(MainLoopState.PickCard);
         }
     }
 
@@ -136,15 +139,14 @@ public class MainLoopManager : MonoBehaviour
         string guestReaction = _currentGuest.GetGuestReaction(currentRoundScore);
 
         _cardAndDialogueUI.SetDialogueText(guestReaction);
-
-        if(_currentRound < _totalRounds)
+        if (_currentRound < _totalRounds)
         {
             _currentRound++;
         }
         else
         {
             _mainLoopMachine.SetState(MainLoopState.LoopEnd);
-        }
+        } 
     }
 
     private void LoopEnd_Start()
