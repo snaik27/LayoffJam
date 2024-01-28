@@ -61,6 +61,7 @@ public class GameStateManager : MonoBehaviour
     private void Boot_Start()
     {
         _musicManager.gameObject.SetActive(true); 
+        _guest.gameObject.SetActive(true);
         _deck.gameObject.SetActive(true);
         _mainLoopManager.gameObject.SetActive(true);
         _introMenu.gameObject.SetActive(true);
@@ -83,5 +84,6 @@ public class GameStateManager : MonoBehaviour
 
     private void Outro_Start()
     { 
+
     }
 }
