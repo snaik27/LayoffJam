@@ -825,6 +825,16 @@ PrefabInstance:
       propertyPath: m_text
       value: Jimmy Rodriguez
       objectReference: {fileID: 0}
+    - target: {fileID: 3195621580453895978, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195621580453895978, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
