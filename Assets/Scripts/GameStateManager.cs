@@ -28,9 +28,14 @@ public class GameStateManager : MonoBehaviour
 
     public void MenuPlayButton_StartMainLoop()
     {
-        _gameEndMenu.gameObject.SetActive(false);
         _gameStateMachine.SetState(GameState.Main);
     } 
+
+    public void EndPlayButton_RestartMainLoop()
+    {
+        _gameEndMenu.gameObject.SetActive(false);
+        _gameStateMachine.SetState(GameState.Main);
+    }
 
     private void Start()
     {
@@ -88,6 +93,7 @@ public class GameStateManager : MonoBehaviour
 
     private void Outro_Start()
     {
+        Debug.Log("gamestatemanager at outro");
         _gameEndMenu.gameObject.SetActive(true);
         if (_scoreManager.TotalScore >= _winThresholdInteger)
         {
