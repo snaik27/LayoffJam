@@ -12,9 +12,6 @@ public class GameEndMenu : MonoBehaviour
     {
         _winLossText.text = text;
     }
-
     public void SetScoreText(string text)
-    {
-        _totalScore.text = text;   
-    }
+    { _totalScore.text = "Total Score: " + text; }
 }

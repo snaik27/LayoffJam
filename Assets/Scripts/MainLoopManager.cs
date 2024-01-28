@@ -54,6 +54,7 @@ public class MainLoopManager : MonoBehaviour
         else if(_mainLoopMachine.CurrentState == MainLoopState.LoopEnd)
         { 
             GameStateManager._instance._gameStateMachine.SetState(GameStateManager.GameState.Outro);
+            _cardAndDialogueUI.gameObject.SetActive(false);
         }
     }
 
@@ -187,6 +188,5 @@ public class MainLoopManager : MonoBehaviour
     private void LoopEnd_Start()
     {
         Debug.Log("got to loop end");
-        _cardAndDialogueUI.gameObject.SetActive(false);
     }
-}
+} 

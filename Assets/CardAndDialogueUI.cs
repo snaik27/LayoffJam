@@ -59,5 +59,4 @@ public class CardAndDialogueUI : MonoBehaviour
         _speakerText.SetText(speaker);
         _dialogueText.SetText(text);
     }
-}
-
+} 

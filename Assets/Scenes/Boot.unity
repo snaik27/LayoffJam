@@ -496,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123acead43423be4fb00c3715b04569c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _winThresholdInteger: 5
+  _winThresholdInteger: 4
   _musicManager: {fileID: 5811066968304214453}
   _mainLoopManager: {fileID: 684415381}
   _deck: {fileID: 746313505}
@@ -692,39 +692,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1732722628}
-    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MenuPlayButton_StartMainLoop
-      objectReference: {fileID: 0}
-    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameStateManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4710978306807461996, guid: 7c17755308bcc9442a3b1dac0961a968,
         type: 3}
       propertyPath: m_Pivot.x
@@ -829,11 +799,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameEnd
-      objectReference: {fileID: 0}
-    - target: {fileID: 6038122306583526437, guid: 7c17755308bcc9442a3b1dac0961a968,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
