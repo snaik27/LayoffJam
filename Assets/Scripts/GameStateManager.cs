@@ -96,7 +96,8 @@ public class GameStateManager : MonoBehaviour
     {
         Debug.Log("gamestatemanager at outro");
         _gameEndMenu.gameObject.SetActive(true);
-        if (_scoreManager.TotalScore >= _winThresholdInteger)
+        bool wonGame = _scoreManager.TotalScore >= _winThresholdInteger;
+        if (wonGame)
         {
             _gameEndMenu.SetWinText("King: You keep your life!");
         }
@@ -106,5 +107,6 @@ public class GameStateManager : MonoBehaviour
         }
 
         _gameEndMenu.SetScoreText(_scoreManager.TotalScore.ToString());
+        _gameEndMenu.SetPlayAgainButtonText(wonGame);
     }
 }
