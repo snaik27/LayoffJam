@@ -1035,7 +1035,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: tbd
+  m_text: "Thou havest 5 rounds to please the king's guest! Deduce the guest's comedic
+    preferences and make them laughe.\r\n\r\nThe King's guests will love 2 types
+    of jokes, and 2 kindes they shall hate.\r\n\r\nAt the start of each round, thou
+    shall choose an act from your list of routines to perform it.\r\nEach routine
+    hath 3 traits associated with it.\r\n\r\nIf thy routine pleases their tastes,
+    they shall affirm it! If they neither love nor loathe thy performance, the guest
+    shall be middling. If they hate thy performance, they shall makest that cleare!\r\n\r\nFigure
+    out thy guest\u2019s preference by inferring why they might have loved or loathed
+    thy performance. If thy performance is entertaining enough, thou shalt perform
+    again! If not\u2026 well, thy execution may be a bit more entertaining.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1062,11 +1071,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 17.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 16
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
