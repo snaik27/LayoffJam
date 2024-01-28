@@ -13,6 +13,13 @@ public class GuestReactions : MonoBehaviour
     private string[] _negativeReactions;
     private string[] _neutralReactions;
 
+    public enum Reaction
+    {
+        Positive,
+        Neutral,
+        Negative
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +28,23 @@ public class GuestReactions : MonoBehaviour
         _neutralReactions = neutral.text.Split("\n");
     }
 
-    public string GetReaction(int score)
+    public Reaction GetReactionType(int score)
+    {
+        if (score < NEUTRAL_MIN_INCLUSIVE)
+        {
+            return Reaction.Negative;
+        }
+        else if (score > NEUTRAL_MAX_INCLUSIVE)
+        {
+            return Reaction.Positive;
+        }
+        else
+        {
+            return Reaction.Neutral;
+        }
+    }
+
+    public string GetReactionScore(int score)
     {
         if (score < NEUTRAL_MIN_INCLUSIVE)
         {

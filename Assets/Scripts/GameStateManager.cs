@@ -11,7 +11,8 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] public Canvas _introMenu;
     [SerializeField] public CardAndDialogueUI _cardsAndDialogueUI;
     [SerializeField] public Transform _creditsUI;
-    [SerializeField] public ScoreManager _scoreManager; 
+    [SerializeField] public ScoreManager _scoreManager;
+    [SerializeField] public Characters _characters;
 
     public static GameStateManager _instance;
     public enum GameState
@@ -66,6 +67,7 @@ public class GameStateManager : MonoBehaviour
         _mainLoopManager.gameObject.SetActive(true);
         _introMenu.gameObject.SetActive(true);
         _scoreManager.gameObject.SetActive(true);
+        _characters.gameObject.SetActive(true);
 
         _musicManager.PlayOpeningTrack();
 
