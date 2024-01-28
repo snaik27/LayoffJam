@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
-    [SerializeField] public int _winThresholdInteger = 5;
+    [SerializeField] public int _winThresholdInteger = 3;
 
     [SerializeField] public MusicManager _musicManager; 
     [SerializeField] public MainLoopManager _mainLoopManager;
