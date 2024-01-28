@@ -44,6 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3129e87e21635fa4ab354b281c331f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _king: {fileID: 0}
-  _guest: {fileID: 0}
-  _jester: {fileID: 0}
+  _jesterJuggle: {fileID: 2800000, guid: 5d04939d3afa4a74aa1e46eea0354d19, type: 3}
+  _jesterNeutral: {fileID: 2800000, guid: 8919fa8998cc7f14e97ae8f2f07c52ad, type: 3}
+  _jesterTada: {fileID: 2800000, guid: 135c52a9c7d74454094ef4bd8cb7552c, type: 3}
+  _bloodBeardNeutral: {fileID: 2800000, guid: c361f528dda8e414fb7d7b00f7f510b5, type: 3}
+  _bloodBeardPositive: {fileID: 2800000, guid: f2be98b8bb855ed4fa83b616d9d8f2aa, type: 3}
+  _bloodBeardNegative: {fileID: 2800000, guid: 0b033b740a975374a9d2065a07c03795, type: 3}
+  _ladyNeutral: {fileID: 2800000, guid: 0d4434c596f7c1c4f844931c16f997c0, type: 3}
+  _ladyPositive: {fileID: 2800000, guid: f2c7fa2a38763054e9915591f5bf51d1, type: 3}
+  _ladyNegative: {fileID: 2800000, guid: 62deeb44a40834a44bb8d7da315b5305, type: 3}
+  _popeNeutral: {fileID: 2800000, guid: cb34e85300b66a44c83328035f4d64bf, type: 3}
+  _popePositive: {fileID: 2800000, guid: 69a474c520fb6284c9d180af62c6aa75, type: 3}
+  _popeNegative: {fileID: 2800000, guid: 989042d26a077d54a91121d5ac72b8c6, type: 3}
+  _characterList: {fileID: 0}

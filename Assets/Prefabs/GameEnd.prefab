@@ -463,6 +463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _winLossText: {fileID: 6356588479701973666}
   _totalScore: {fileID: 4962514022494660873}
+  _buttonText: {fileID: 224683811319396914}
 --- !u!1 &6512188083509756367
 GameObject:
   m_ObjectHideFlags: 0
