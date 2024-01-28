@@ -117,10 +117,10 @@ public class MainLoopManager : MonoBehaviour
     /// </summary>
     private void JesterJokeSetup_Start()
     {
-        _cardAndDialogueUI.DisplayDialogueAndHideCards(); 
-         _cardAndDialogueUI.SetDialogueText("Joker", _chosenCard.Setup);
+        _cardAndDialogueUI.DisplayDialogueAndHideCards();
+        _cardAndDialogueUI.SetDialogueText("Joker", _chosenCard.Setup);
 
-        if(_chosenCard.Trait3 == Card.Trait.Physical)
+        if (_chosenCard.Trait3 == Card.Trait.Physical)
         {
             _characters.DoJesterPhysicalJoke();
         }
@@ -128,7 +128,7 @@ public class MainLoopManager : MonoBehaviour
         {
             _characters.DoJesterVerbalJoke();
         }
-
+    }
     /// <summary>
     /// show punchline
     /// click to advance
