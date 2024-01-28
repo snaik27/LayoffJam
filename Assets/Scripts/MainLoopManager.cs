@@ -42,6 +42,7 @@ public class MainLoopManager : MonoBehaviour
     {
         _currentRound = 0;
         _mainLoopMachine.SetState(MainLoopState.PickCard);
+
     }
 
     /// <summary>

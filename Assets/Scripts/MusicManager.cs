@@ -15,6 +15,7 @@ public class MusicManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        _audioSource = GetComponent<AudioSource>();
         _audioSource.loop = true;
     }
     public void PlayOpeningTrack()
