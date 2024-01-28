@@ -198,11 +198,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MDL_HeadPlaque
       objectReference: {fileID: 0}
-    - target: {fileID: 5908278301509599519, guid: 0a3d8114c0acae841aaa851478f09cab,
-        type: 3}
-      propertyPath: plaque
-      value: 
-      objectReference: {fileID: 2197242555696582000}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
