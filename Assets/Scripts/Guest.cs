@@ -14,13 +14,12 @@ public class Guest : MonoBehaviour
         Negative = -1
     }
 
-    public string Name { private set; get; }
+    public string Name = "";
     private Disposition[] _dispositions;
     private GuestReactions _reactions;
 
     public void GenerateRandomGuest()
-    {
-        Name = "King";
+    { 
         GenerateDispositions();
         _reactions = GetComponent<GuestReactions>();
     }
