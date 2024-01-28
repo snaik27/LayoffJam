@@ -20,12 +20,13 @@ public class Characters : MonoBehaviour
         _instance = this;
     }
 
-    public void DoPhysicalJoke()
+    public void DoJesterNeutral() { }
+    public void DoJesterPhysicalJoke()
     {
         Debug.Log("IMPLEMENT VISUAL: Jester does physical joke");
     }
 
-    public void DoVerbalJoke()
+    public void DoJesterVerbalJoke()
     {
         Debug.Log("IMPLEMENT VISUAL: Jester does visual joke");
     }
@@ -33,6 +34,11 @@ public class Characters : MonoBehaviour
     public void DoGuestPositiveReaction()
     {
         Debug.Log("IMPLEMENT VISUAL: Guest positive reaction");
+    }
+
+    public void DoGuestNeutralReaction()
+    {
+
     }
 
     public void DoGuestNegativeReaction()
@@ -44,6 +50,8 @@ public class Characters : MonoBehaviour
     {
         Debug.Log("IMPLEMENT VISUAL: King positive reaction");
     }
+
+    public void DoKingNeutralReaction() { }
 
     public void DoKingNegativeReaction()
     {

@@ -23,9 +23,14 @@ public class Guest : MonoBehaviour
         _reactions = GetComponent<GuestReactions>();
     }
 
-    public string GetGuestReaction(int score)
+    public GuestReactions.Reaction GetGuestReactionType(int score)
     {
-        return _reactions.GetReaction(score);
+        return _reactions.GetReactionType(score);
+    }
+
+    public string GetGuestReactionScore(int score)
+    {
+        return _reactions.GetReactionScore(score);
     }
 
     public Disposition GetDisposition(Card.Trait trait)
