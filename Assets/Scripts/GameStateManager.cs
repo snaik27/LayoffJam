@@ -15,23 +15,28 @@ public class GameStateManager : MonoBehaviour
     public enum GameState
     {
         Boot,
-        Intro,
-        Main,
-        Outro,
-        Credits
+        Main, 
+        Outro, 
     }
 
     public StateMachine<GameState> _gameStateMachine; 
 
     public void StartMainLoop()
     {
-        _mainLoopManager.StartMainLoop();   
+        _gameStateMachine.SetState(GameState.Main);
     } 
 
     private void Awake()
     {
         DontDestroyOnLoad(this);
         _instance = this;
+
+        //Boot the things x
+        //Let user switch between how to play and credits as they please x
+        //On play --> Load main scene and start main loop x
+        //-----let main loop happen
+        //Outro w king and guests
+        //play again? --> Ensure different guest
         _gameStateMachine = new StateMachine<GameState>(GameState.Boot, machine =>
         {
             machine.ConfigureState(GameState.Boot, Boot_Start, null, null);
@@ -60,7 +65,6 @@ public class GameStateManager : MonoBehaviour
         _musicManager.PlayOpeningTrack();
     }
      
-
     /// <summary>
     /// 
     /// </summary>
@@ -72,8 +76,6 @@ public class GameStateManager : MonoBehaviour
     } 
 
     private void Outro_Start()
-    {
-
+    { 
     }
- 
 }
