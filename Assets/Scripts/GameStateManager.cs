@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
+    [SerializeField] public int _winThresholdInteger = 5;
+
     [SerializeField] public MusicManager _musicManager; 
     [SerializeField] public MainLoopManager _mainLoopManager;
     [SerializeField] public Deck _deck;
@@ -13,7 +15,7 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] public Transform _creditsUI;
     [SerializeField] public ScoreManager _scoreManager;
     [SerializeField] public Characters _characters;
-
+    [SerializeField] public GameEndMenu _gameEndMenu;
     public static GameStateManager _instance;
     public enum GameState
     {
@@ -24,9 +26,9 @@ public class GameStateManager : MonoBehaviour
 
     public StateMachine<GameState> _gameStateMachine; 
 
-
     public void MenuPlayButton_StartMainLoop()
     {
+        _gameEndMenu.gameObject.SetActive(false);
         _gameStateMachine.SetState(GameState.Main);
     } 
 
@@ -45,6 +47,7 @@ public class GameStateManager : MonoBehaviour
         {
             machine.ConfigureState(GameState.Boot, Boot_Start, null, null);
             machine.ConfigureState(GameState.Main, Main_Start, null, null);
+            machine.ConfigureState(GameState.Outro, Outro_Start, null, null);
         });
     }
 
@@ -68,7 +71,6 @@ public class GameStateManager : MonoBehaviour
         _introMenu.gameObject.SetActive(true);
         _scoreManager.gameObject.SetActive(true);
         _characters.gameObject.SetActive(true);
-
         _musicManager.PlayOpeningTrack();
 
 
@@ -85,7 +87,17 @@ public class GameStateManager : MonoBehaviour
     } 
 
     private void Outro_Start()
-    { 
+    {
+        _gameEndMenu.gameObject.SetActive(true);
+        if (_scoreManager.TotalScore >= _winThresholdInteger)
+        {
+            _gameEndMenu.SetWinText("King: You keep your life!");
+        }
+        else
+        {
+            _gameEndMenu.SetWinText("King: DUNGEON. 12 YEARS DUNGEON.");
+        }
 
+        _gameEndMenu.SetScoreText(_scoreManager.TotalScore.ToString());
     }
 }
