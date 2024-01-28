@@ -9,6 +9,8 @@ public class MainLoopManager : MonoBehaviour
     public int _currentRound = 0;
     public int _totalRounds = 5;
     public Deck _cardDeck;
+    public Guest _currentGuest;
+    public CardAndDialogueUI _cardAndDialogueUI;
 
     public enum MainLoopState
     {
@@ -26,6 +28,17 @@ public class MainLoopManager : MonoBehaviour
     {
         _cardDeck = FindObjectOfType<Deck>();
 
+        // Show Card UI
+        // Choose a guest
+        // Get 3 cards
+        // User chooses card
+        // Display setup dialogue
+        // Click to advance
+        // Display punchline dialogue
+        // Click to advance
+        // Display guest reaction + affect score
+        // redo till total_rounds
+        // leave loop
         _mainLoopMachine = new StateMachine<MainLoopState>(MainLoopState.None, machine =>
         {
             machine.ConfigureState(MainLoopState.PickCard, PickCard_Start, null, null);
