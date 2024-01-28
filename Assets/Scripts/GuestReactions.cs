@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GuestReactions : MonoBehaviour
 {
-    const int NEUTRAL_MIN_INCLUSIVE = 1;
+    const int NEUTRAL_MIN_INCLUSIVE = 0;
     const int NEUTRAL_MAX_INCLUSIVE = 1;
 
     public TextAsset positive;
