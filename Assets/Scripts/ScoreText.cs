@@ -17,5 +17,24 @@ public class ScoreText : DialogueUI
             Disposition.Neutral => Color.yellow,
             _ => Color.black
         };
+
+        switch (disposition)
+        {
+            case Disposition.Positive:
+                _textToDisplay.color = Color.green;
+                _textToDisplay.SetText(":)");
+                break;
+            case Disposition.Neutral:
+                _textToDisplay.color = Color.yellow;
+                _textToDisplay.SetText(":|");
+                break;
+            case Disposition.Negative:
+                _textToDisplay.color = Color.red;
+                _textToDisplay.SetText(":(");
+                break;
+            default:
+                _textToDisplay.SetText("");
+                break;
+        }
     }
 }
