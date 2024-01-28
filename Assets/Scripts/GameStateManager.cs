@@ -1,11 +1,15 @@
 using SidTools;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
     [SerializeField] private MusicManager _musicManager; 
     [SerializeField] private MainLoopManager _mainLoopManager;
+    [SerializeField] private Deck _deck;
+    [SerializeField] private Canvas _introMenu;
+    [SerializeField] private Canvas _cardsAndDialogueUI;
+    [SerializeField] private Transform _creditsUI;
 
     public static GameStateManager _instance;
     public enum GameState
@@ -17,21 +21,28 @@ public class GameStateManager : MonoBehaviour
         Credits
     }
 
-    public StateMachine<GameState> _gameStateMachine;
+    public StateMachine<GameState> _gameStateMachine; 
 
-    private void Start()
+    public void StartMainLoop()
     {
+        _mainLoopManager.StartMainLoop();   
+    } 
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
         _instance = this;
         _gameStateMachine = new StateMachine<GameState>(GameState.Boot, machine =>
         {
             machine.ConfigureState(GameState.Boot, Boot_Start, null, null);
-            machine.ConfigureState(GameState.Intro, Intro_Start, null, null);
             machine.ConfigureState(GameState.Main, Main_Start, null, null);
-            machine.ConfigureState(GameState.Outro, Outro_Start, null, null);
-            machine.ConfigureState(GameState.Credits, Credits_Start, null, null);
         });
     }
 
+    private void Update()
+    {
+        _gameStateMachine.UpdateState();
+    }
 
     /// <summary>
     /// Load all the things:
@@ -42,18 +53,13 @@ public class GameStateManager : MonoBehaviour
     private void Boot_Start()
     {
         _musicManager.gameObject.SetActive(true); 
+        _deck.gameObject.SetActive(true);
         _mainLoopManager.gameObject.SetActive(true);
+        _introMenu.gameObject.SetActive(true); 
 
         _musicManager.PlayOpeningTrack();
     }
-
-    /// <summary>
-    /// Start intro tutorial
-    /// </summary>
-    private void Intro_Start()
-    {
-        _gameStateMachine.SetState(GameState.Main);
-    }
+     
 
     /// <summary>
     /// 
@@ -61,6 +67,7 @@ public class GameStateManager : MonoBehaviour
     private void Main_Start()
     {
         // main card choose/reaction loop
+        SceneManager.LoadScene("Main", LoadSceneMode.Additive);
         _mainLoopManager.StartMainLoop();
     } 
 
@@ -68,14 +75,5 @@ public class GameStateManager : MonoBehaviour
     {
 
     }
-
-    private void Credits_Start()
-    {
-
-    }
-
-    private void Update()
-    {
-        _gameStateMachine.UpdateState();
-    }
+ 
 }
