@@ -32,7 +32,6 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4055468396892375054}
   - {fileID: 7502266149318069763}
   - {fileID: 5264706608359308632}
   - {fileID: 2650783122060693585}
@@ -271,8 +270,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190591
-  m_fontColor: {r: 1, g: 0.003921569, b: 0, a: 1}
+    rgba: 4292993505
+  m_fontColor: {r: 0.88235295, g: 0.88235295, b: 0.88235295, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -391,15 +390,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: c0a7efecf3fb07a41bc40178113aa7b2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -855,95 +854,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 441051748140996585, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
     type: 3}
   m_PrefabInstance: {fileID: 4254376519902198800}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &4492627872713121767
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 7168732582383757050}
-    m_Modifications:
-    - target: {fileID: 441051748140996585, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 441051748140996585, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441051748140996585, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441051748140996585, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 441051748140996585, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441051748140996585, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441051748140996585, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441051748140996585, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441051748140996585, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441051748140996585, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1535683854472325150, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197242555696582000, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sound Guy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3195621580453895978, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_text
-      value: Sound Guy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-        type: 3}
-      propertyPath: m_text
-      value: Lead SFX Artist
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c, type: 3}
---- !u!4 &4055468396892375054 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 441051748140996585, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
-    type: 3}
-  m_PrefabInstance: {fileID: 4492627872713121767}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5697353687285508785
 PrefabInstance:
