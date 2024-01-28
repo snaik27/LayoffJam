@@ -7,15 +7,15 @@ using UnityEngine;
 public class MainLoopManager : MonoBehaviour
 {
 
-    [HideInInspector] private int _currentRound = 0;
-    [HideInInspector] private int _totalRounds = 5;
+    [SerializeField] private int _currentRound = 0;
+    [SerializeField] private int _totalRounds = 4;
     private Deck _cardDeck;
     private Guest _currentGuest;
     private CardAndDialogueUI _cardAndDialogueUI;
     private ScoreManager _scoreManager;
     private Card[] _currentHand;
     private Card _chosenCard;
-
+    private Characters _characters;
     public enum MainLoopState
     { 
         None,
@@ -24,7 +24,6 @@ public class MainLoopManager : MonoBehaviour
         JesterJokePunchline,        //Click to advance
         GuestReaction,              //Click to advance
         LoopEnd                     //Guest/King tell you if you live or not
-
     }
 
     public StateMachine<MainLoopState> _mainLoopMachine;
@@ -47,6 +46,10 @@ public class MainLoopManager : MonoBehaviour
         {
             _mainLoopMachine.SetState(MainLoopState.GuestReaction);
         }
+        else if(_mainLoopMachine.CurrentState == MainLoopState.GuestReaction)
+        {
+            _mainLoopMachine.SetState(MainLoopState.PickCard);
+        }
     }
 
     private void Start()
@@ -55,6 +58,7 @@ public class MainLoopManager : MonoBehaviour
         _currentGuest =             GameStateManager._instance._guest;
         _cardAndDialogueUI =        GameStateManager._instance._cardsAndDialogueUI;
         _scoreManager =             GameStateManager._instance._scoreManager;
+        _characters = GameStateManager._instance._characters;
         // Choose guest --> Guest script generates new guest on awake, just refer to that when needed
         // Show Card UI
         // Get 3 cards
@@ -101,6 +105,10 @@ public class MainLoopManager : MonoBehaviour
 
         _cardAndDialogueUI.DisplayCardsAndHideDialogue();
         _cardAndDialogueUI.SetCards(newHand[0], newHand[1], newHand[2]);
+
+
+        _characters.DoKingNeutralReaction();
+        _characters.DoGuestNeutralReaction();
     }
 
     /// <summary>
@@ -110,20 +118,28 @@ public class MainLoopManager : MonoBehaviour
     private void JesterJokeSetup_Start()
     {
         _cardAndDialogueUI.DisplayDialogueAndHideCards();
-        _cardAndDialogueUI.SetDialogueText(_chosenCard.Setup);
+        _cardAndDialogueUI.SetDialogueText("Joker", _chosenCard.Setup);
 
+        if (_chosenCard.Trait3 == Card.Trait.Physical)
+        {
+            _characters.DoJesterPhysicalJoke();
+        }
+        else
+        {
+            _characters.DoJesterVerbalJoke();
+        }
     }
-
-
     /// <summary>
     /// show punchline
     /// click to advance
     /// </summary>
     private void JesterJokePunchline_Start() 
     {
-        _cardAndDialogueUI.SetDialogueText(_chosenCard.Punchline);
+        _cardAndDialogueUI.SetDialogueText("Joker", _chosenCard.Punchline);
+        _characters.DoJesterNeutral();    
     }
 
+    
     /// <summary>
     /// play guest reaction/text
     /// only advance on input(same as jesterjoke)
@@ -133,18 +149,33 @@ public class MainLoopManager : MonoBehaviour
     {
 
         int currentRoundScore = _scoreManager.ScoreRound(_currentGuest, _chosenCard);
-        string guestReaction = _currentGuest.GetGuestReaction(currentRoundScore);
+        string guestReaction = _currentGuest.GetGuestReactionScore(currentRoundScore);
+        GuestReactions.Reaction reaction = _currentGuest.GetGuestReactionType(currentRoundScore);
+        switch (reaction)
+        {
+            case GuestReactions.Reaction.Positive:
+                _characters.DoKingPositiveReaction();
+                _characters.DoGuestPositiveReaction();
+                break;
+            case GuestReactions.Reaction.Neutral:
+                _characters.DoKingNeutralReaction();
+                _characters.DoGuestNeutralReaction();
+                break;
+            case GuestReactions.Reaction.Negative:
+                _characters.DoKingNegativeReaction();
+                _characters.DoGuestNegativeReaction();
+                break; 
+        }
 
-        _cardAndDialogueUI.SetDialogueText(guestReaction);
-
-        if(_currentRound < _totalRounds)
+        _cardAndDialogueUI.SetDialogueText(_currentGuest.Name, guestReaction);
+        if (_currentRound < _totalRounds)
         {
             _currentRound++;
         }
         else
         {
             _mainLoopMachine.SetState(MainLoopState.LoopEnd);
-        }
+        } 
     }
 
     private void LoopEnd_Start()

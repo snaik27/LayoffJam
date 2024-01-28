@@ -11,7 +11,8 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] public Canvas _introMenu;
     [SerializeField] public CardAndDialogueUI _cardsAndDialogueUI;
     [SerializeField] public Transform _creditsUI;
-    [SerializeField] public ScoreManager _scoreManager; 
+    [SerializeField] public ScoreManager _scoreManager;
+    [SerializeField] public Characters _characters;
 
     public static GameStateManager _instance;
     public enum GameState
@@ -61,10 +62,12 @@ public class GameStateManager : MonoBehaviour
     private void Boot_Start()
     {
         _musicManager.gameObject.SetActive(true); 
+        _guest.gameObject.SetActive(true);
         _deck.gameObject.SetActive(true);
         _mainLoopManager.gameObject.SetActive(true);
         _introMenu.gameObject.SetActive(true);
         _scoreManager.gameObject.SetActive(true);
+        _characters.gameObject.SetActive(true);
 
         _musicManager.PlayOpeningTrack();
 
@@ -83,5 +86,6 @@ public class GameStateManager : MonoBehaviour
 
     private void Outro_Start()
     { 
+
     }
 }

@@ -14,18 +14,25 @@ public class Guest : MonoBehaviour
         Negative = -1
     }
 
+    public string Name { private set; get; }
     private Disposition[] _dispositions;
     private GuestReactions _reactions;
 
     public void GenerateRandomGuest()
     {
+        Name = "King";
         GenerateDispositions();
         _reactions = GetComponent<GuestReactions>();
     }
 
-    public string GetGuestReaction(int score)
+    public GuestReactions.Reaction GetGuestReactionType(int score)
     {
-        return _reactions.GetReaction(score);
+        return _reactions.GetReactionType(score);
+    }
+
+    public string GetGuestReactionScore(int score)
+    {
+        return _reactions.GetReactionScore(score);
     }
 
     public Disposition GetDisposition(Card.Trait trait)
