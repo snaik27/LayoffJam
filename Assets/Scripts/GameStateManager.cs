@@ -89,6 +89,7 @@ public class GameStateManager : MonoBehaviour
     private void Main_Start()
     {
         _mainLoopManager.StartMainLoop();
+        Debug.Log(_scoreManager.TotalScore.ToString());
     } 
 
     private void Outro_Start()
