@@ -95,6 +95,8 @@ public class MainLoopManager : MonoBehaviour
         _scoreManager.TotalScore = 0;
         _cardDeck.CreateRandomDeck();
         _currentGuest.GenerateRandomGuest();
+        _characters._characterList.NextCharacter();
+        _currentGuest.Name = _characters._characterList._currentCharacter.ToString();
         _cardAndDialogueUI.gameObject.SetActive(true);
 
         _mainLoopMachine.SetState(MainLoopState.PickCard);

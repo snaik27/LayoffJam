@@ -6,9 +6,13 @@ public class CharacterList : MonoBehaviour
 {
     [SerializeField] public Animator _king;
     [SerializeField] public Animator _jester;
-    [SerializeField] public List<Animator> _guests;
-    public Animator _currentGuest;
-    public Character _currentGuestName;
+    [SerializeField] public List<Animator> _guestAnimators;
+    public Animator _currentGuestAnimator => _guestAnimators[(int)_currentCharacter];
+
+    public Character _currentCharacter => _characters[_currentGuestIndex % _characters.Length];
+
+    private int _currentGuestIndex;
+    private Character[] _characters = { Character.Lady, Character.BloodBeard, Character.Pope };
     public enum Character
     {
         Lady = 0,
@@ -18,40 +22,32 @@ public class CharacterList : MonoBehaviour
 
     private void Awake()
     {
-        ChooseRandomCharacter();
+        foreach(Animator guestAnim in _guestAnimators)
+        {
+            guestAnim.gameObject.SetActive(false);
+        }
+
+        ShuffleCharacterList();
+        _currentGuestIndex = 0;
+        NextCharacter();
         Characters._instance._characterList = this;
     }
 
-    public void ChooseRandomCharacter()
+    public void NextCharacter()
     {
-        int randomCharacter = Random.Range(0, _guests.Count - 1);
+        _currentGuestAnimator.gameObject.SetActive(false);
+        _currentGuestIndex++;
+        _currentGuestAnimator.gameObject.SetActive(true);
 
+        GameStateManager._instance._guest.name = _currentCharacter.ToString();
+    }
 
-        _currentGuest = _guests[randomCharacter];
-        if(randomCharacter == 0)
+    private void ShuffleCharacterList()
+    {
+        for (int i = 0; i <  _characters.Length; i++)
         {
-            _currentGuestName = Character.Lady;
+            int randomIdx = Random.Range(0, _characters.Length);
+            (_characters[i], _characters[randomIdx]) = (_characters[randomIdx], _characters[i]);
         }
-        else if(randomCharacter == 1)
-        {
-            _currentGuestName = Character.BloodBeard;
-        }
-        else
-        {
-            _currentGuestName = Character.Pope;
-        }
-
-
-        foreach(Animator guest in _guests)
-        {
-            if(guest != _currentGuest)
-            {
-                guest.gameObject.SetActive(false);
-            }
-        }
-
-        _guests.Remove(_currentGuest);
-
-        GameStateManager._instance._guest.name = _currentGuestName.ToString();
     }
 }

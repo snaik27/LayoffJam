@@ -60,57 +60,57 @@ public class Characters : MonoBehaviour
 
     public void DoGuestPositiveReaction()
     {
-        _characterList._currentGuest.SetTrigger("Pos");
+        _characterList._currentGuestAnimator.SetTrigger("Pos");
 
-        if (_characterList._currentGuest.transform.name.ToLower().Contains("lady"))
+        if (_characterList._currentGuestAnimator.transform.name.ToLower().Contains("lady"))
         {
-            _characterList._currentGuest.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _ladyPositive);
+            _characterList._currentGuestAnimator.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _ladyPositive);
         }
-        else if (_characterList._currentGuest.transform.name.ToLower().Contains("pope"))
+        else if (_characterList._currentGuestAnimator.transform.name.ToLower().Contains("pope"))
         {
-            _characterList._currentGuest.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _popePositive);
+            _characterList._currentGuestAnimator.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _popePositive);
         }
         else
         {
-            _characterList._currentGuest.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _bloodBeardPositive);
+            _characterList._currentGuestAnimator.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _bloodBeardPositive);
         }
     }
 
     public void DoGuestNeutralReaction()
     {
-        _characterList._currentGuest.SetTrigger("Neutral");
+        _characterList._currentGuestAnimator.SetTrigger("Neutral");
 
 
-        if (_characterList._currentGuest.transform.name.ToLower().Contains("lady"))
+        if (_characterList._currentGuestAnimator.transform.name.ToLower().Contains("lady"))
         {
-            _characterList._currentGuest.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _ladyNeutral);
+            _characterList._currentGuestAnimator.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _ladyNeutral);
         }
-        else if (_characterList._currentGuest.transform.name.ToLower().Contains("pope"))
+        else if (_characterList._currentGuestAnimator.transform.name.ToLower().Contains("pope"))
         {
-            _characterList._currentGuest.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _popeNeutral);
+            _characterList._currentGuestAnimator.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _popeNeutral);
         }
         else
         {
-            _characterList._currentGuest.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _bloodBeardNeutral);
+            _characterList._currentGuestAnimator.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _bloodBeardNeutral);
         }
 
     }
 
     public void DoGuestNegativeReaction()
     {
-        _characterList._currentGuest.SetTrigger("Neg");
+        _characterList._currentGuestAnimator.SetTrigger("Neg");
 
-        if (_characterList._currentGuest.transform.name.ToLower().Contains("lady"))
+        if (_characterList._currentGuestAnimator.transform.name.ToLower().Contains("lady"))
         {
-            _characterList._currentGuest.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _ladyNegative);
+            _characterList._currentGuestAnimator.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _ladyNegative);
         }
-        else if (_characterList._currentGuest.transform.name.ToLower().Contains("pope"))
+        else if (_characterList._currentGuestAnimator.transform.name.ToLower().Contains("pope"))
         {
-            _characterList._currentGuest.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _popeNegative);
+            _characterList._currentGuestAnimator.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _popeNegative);
         }
         else
         {
-            _characterList._currentGuest.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _bloodBeardNegative);
+            _characterList._currentGuestAnimator.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_BaseMap", _bloodBeardNegative);
         }
     }
 
