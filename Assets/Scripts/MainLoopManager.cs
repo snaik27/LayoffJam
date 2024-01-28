@@ -9,6 +9,7 @@ public class MainLoopManager : MonoBehaviour
 
     [SerializeField] private int _currentRound = 0;
     [SerializeField] private int _totalRounds = 4;
+
     private Deck _cardDeck;
     private Guest _currentGuest;
     private CardAndDialogueUI _cardAndDialogueUI;
@@ -49,6 +50,10 @@ public class MainLoopManager : MonoBehaviour
         else if(_mainLoopMachine.CurrentState == MainLoopState.GuestReaction)
         {
             _mainLoopMachine.SetState(MainLoopState.PickCard);
+        }
+        else if(_mainLoopMachine.CurrentState == MainLoopState.LoopEnd)
+        { 
+            GameStateManager._instance._gameStateMachine.SetState(GameStateManager.GameState.Outro);
         }
     }
 
@@ -150,23 +155,24 @@ public class MainLoopManager : MonoBehaviour
 
         int currentRoundScore = _scoreManager.ScoreRound(_currentGuest, _chosenCard);
         string guestReaction = _currentGuest.GetGuestReactionScore(currentRoundScore);
-        GuestReactions.Reaction reaction = _currentGuest.GetGuestReactionType(currentRoundScore);
-        switch (reaction)
+        Disposition guestDisposition = ScoreManager.ScoreToDisposition(currentRoundScore);
+        switch (guestDisposition)
         {
-            case GuestReactions.Reaction.Positive:
+            case Disposition.Positive:
                 _characters.DoKingPositiveReaction();
                 _characters.DoGuestPositiveReaction();
                 break;
-            case GuestReactions.Reaction.Neutral:
+            case Disposition.Neutral:
                 _characters.DoKingNeutralReaction();
                 _characters.DoGuestNeutralReaction();
                 break;
-            case GuestReactions.Reaction.Negative:
+            case Disposition.Negative:
                 _characters.DoKingNegativeReaction();
                 _characters.DoGuestNegativeReaction();
                 break; 
         }
 
+        _cardAndDialogueUI.SetCurrentRoundScore(currentRoundScore);
         _cardAndDialogueUI.SetDialogueText(_currentGuest.Name, guestReaction);
         if (_currentRound < _totalRounds)
         {
@@ -180,8 +186,7 @@ public class MainLoopManager : MonoBehaviour
 
     private void LoopEnd_Start()
     {
+        Debug.Log("got to loop end");
         _cardAndDialogueUI.gameObject.SetActive(false);
-
-        GameStateManager._instance._gameStateMachine.SetState(GameStateManager.GameState.Outro);
     }
 }

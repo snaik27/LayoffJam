@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class GuestReactions : MonoBehaviour
 {
-    const int NEUTRAL_MIN_INCLUSIVE = 0;
-    const int NEUTRAL_MAX_INCLUSIVE = 0;
-
     public TextAsset positive;
     public TextAsset negative;
     public TextAsset neutral;
@@ -27,34 +24,19 @@ public class GuestReactions : MonoBehaviour
         _negativeReactions = negative.text.Split("\n");
         _neutralReactions = neutral.text.Split("\n");
     }
-
-    public Reaction GetReactionType(int score)
-    {
-        if (score < NEUTRAL_MIN_INCLUSIVE)
-        {
-            return Reaction.Negative;
-        }
-        else if (score > NEUTRAL_MAX_INCLUSIVE)
-        {
-            return Reaction.Positive;
-        }
-        else
-        {
-            return Reaction.Neutral;
-        }
-    }
-
+     
     public string GetReactionScore(int score)
     {
-        if (score < NEUTRAL_MIN_INCLUSIVE)
+        switch (ScoreManager.ScoreToDisposition(score))
         {
-            return GetNegativeReaction();
-        } else if (score > NEUTRAL_MAX_INCLUSIVE)
-        {
-            return GetPositiveReaction();
-        } else
-        {
-            return GetNeutralReaction();
+            case Disposition.Positive:
+                return GetPositiveReaction();
+            case Disposition.Negative:
+                return GetNegativeReaction();
+            case Disposition.Neutral:
+                return GetNeutralReaction();
+            default:
+                throw new System.InvalidOperationException("Invalid disposition");
         }
     }
 

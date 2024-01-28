@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DialogueUI : MonoBehaviour
 {
-    [SerializeField] private TMPro.TextMeshProUGUI _textToDisplay;
+    [SerializeField] protected TMPro.TextMeshProUGUI _textToDisplay;
 
-    private void Awake()
+    protected void Awake()
     {
         _textToDisplay = GetComponent<TMPro.TextMeshProUGUI>(); 
     }
