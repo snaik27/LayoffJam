@@ -8,6 +8,7 @@ public class MainLoopManager : MonoBehaviour
 {
     public int _currentRound = 0;
     public int _totalRounds = 5;
+    public Deck _cardDeck;
 
     public enum MainLoopState
     {
@@ -21,8 +22,10 @@ public class MainLoopManager : MonoBehaviour
 
     public StateMachine<MainLoopState> _mainLoopMachine;
 
-    private void Start()
+    private void Awake()
     {
+        _cardDeck = FindObjectOfType<Deck>();
+
         _mainLoopMachine = new StateMachine<MainLoopState>(MainLoopState.None, machine =>
         {
             machine.ConfigureState(MainLoopState.PickCard, PickCard_Start, null, null);
@@ -68,6 +71,15 @@ public class MainLoopManager : MonoBehaviour
     private void GuestReaction_Start()
     {
         
+        if(_currentRound < _totalRounds)
+        {
+            _currentRound++;
+        }
+        else
+        {
+            _currentRound = 0;
+            _mainLoopMachine.SetState(MainLoopState.LoopEnd);
+        }
     }
 
     private void LoopEnd_Start()
