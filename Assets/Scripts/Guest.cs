@@ -9,9 +9,9 @@ public class Guest : MonoBehaviour
 {
     public enum Disposition
     {
-        Positive = 2,
-        Neutral = 1,
-        Negative = -2
+        Positive = 1,
+        Neutral = 0,
+        Negative = -1
     }
 
     private Disposition[] _dispositions;
