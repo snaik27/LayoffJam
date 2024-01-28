@@ -43,6 +43,11 @@ public class Card
         return Trait1 == trait || Trait2 == trait || Trait3 == trait;
     }
 
+    public string DisplayString()
+    {
+        return $"<b>{Trait3}</b>\n{Trait1}\n{Trait2}";
+    }
+
     public override string ToString()
     {
         return $"[{Trait1},{Trait2},{Trait3}] {Setup}; {Punchline}";

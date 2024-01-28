@@ -5,8 +5,8 @@ using UnityEngine;
 public class CreditsScroll : MonoBehaviour
 {
     public GameObject plaque;
-    private float speed = -30f;
-    private Vector3 position = new Vector3(15.0f, 0, 500f);
+    private float speed = -1.0f;
+    private Vector3 position = new Vector3(2f, 4f, 5f);
     public void SetPosition()
     {
         Rigidbody2D rb = plaque.GetComponent<Rigidbody2D>();
