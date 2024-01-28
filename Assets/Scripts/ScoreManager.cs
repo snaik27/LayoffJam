@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
     const int NEUTRAL_MIN_INCLUSIVE = 0;
     const int NEUTRAL_MAX_INCLUSIVE = 0;
 
-    public int TotalScore { get; private set; }
+    public int TotalScore { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class ScoreManager : MonoBehaviour
         currentRoundScore += (int)guest.GetDisposition(card.Trait3);
 
         TotalScore += currentRoundScore;
+        Debug.Log(currentRoundScore.ToString());
         return currentRoundScore;
     }
 
