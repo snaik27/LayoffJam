@@ -138,6 +138,7 @@ public class MainLoopManager : MonoBehaviour
         int currentRoundScore = _scoreManager.ScoreRound(_currentGuest, _chosenCard);
         string guestReaction = _currentGuest.GetGuestReaction(currentRoundScore);
 
+        _cardAndDialogueUI.SetCurrentRoundScore(currentRoundScore);
         _cardAndDialogueUI.SetDialogueText(_currentGuest.Name, guestReaction);
         if (_currentRound < _totalRounds)
         {
