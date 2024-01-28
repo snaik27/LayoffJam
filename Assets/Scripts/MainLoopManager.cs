@@ -113,7 +113,7 @@ public class MainLoopManager : MonoBehaviour
     private void JesterJokeSetup_Start()
     {
         _cardAndDialogueUI.DisplayDialogueAndHideCards();
-        _cardAndDialogueUI.SetDialogueText(_chosenCard.Setup);
+        _cardAndDialogueUI.SetDialogueText("Joker", _chosenCard.Setup);
 
     }
 
@@ -124,7 +124,7 @@ public class MainLoopManager : MonoBehaviour
     /// </summary>
     private void JesterJokePunchline_Start() 
     {
-        _cardAndDialogueUI.SetDialogueText(_chosenCard.Punchline);
+        _cardAndDialogueUI.SetDialogueText("Joker", _chosenCard.Punchline);
     }
 
     /// <summary>
@@ -138,7 +138,7 @@ public class MainLoopManager : MonoBehaviour
         int currentRoundScore = _scoreManager.ScoreRound(_currentGuest, _chosenCard);
         string guestReaction = _currentGuest.GetGuestReaction(currentRoundScore);
 
-        _cardAndDialogueUI.SetDialogueText(guestReaction);
+        _cardAndDialogueUI.SetDialogueText(_currentGuest.Name, guestReaction);
         if (_currentRound < _totalRounds)
         {
             _currentRound++;

@@ -8,6 +8,7 @@ public class CardAndDialogueUI : MonoBehaviour
     [SerializeField] private DialogueUI _card2;
     [SerializeField] private DialogueUI _card3;
     [SerializeField] private DialogueUI _dialogueText;
+    [SerializeField] private DialogueUI _speakerText;
     [SerializeField] private GameObject _dialogueObject;
     [SerializeField] private GameObject _cardObject;
 
@@ -40,13 +41,14 @@ public class CardAndDialogueUI : MonoBehaviour
 
     public void SetCards(Card card1, Card card2, Card card3)
     {
-        _card1.SetText(card1.Setup + "\n" + card1.Punchline);
-        _card2.SetText(card2.Setup + "\n" + card2.Punchline);
-        _card3.SetText(card3.Setup + "\n" + card3.Punchline);
+        _card1.SetText(card1.DisplayString());
+        _card2.SetText(card2.DisplayString());
+        _card3.SetText(card3.DisplayString());
     }
 
-    public void SetDialogueText(string text)
+    public void SetDialogueText(string speaker, string text)
     {
+        _speakerText.SetText(speaker);
         _dialogueText.SetText(text);
     }
 }
