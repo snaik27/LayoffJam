@@ -45,7 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentRound: 0
-  _totalRounds: 5
-  _cardDeck: {fileID: 0}
-  _currentGuest: {fileID: 0}
-  _cardAndDialogueUI: {fileID: 0}
+  _totalRounds: 4
