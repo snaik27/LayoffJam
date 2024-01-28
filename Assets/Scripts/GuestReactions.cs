@@ -18,35 +18,6 @@ public class GuestReactions : MonoBehaviour
         _positiveReactions = positive.text.Split("\n");
         _negativeReactions = negative.text.Split("\n");
         _neutralReactions = neutral.text.Split("\n");
-
-
-        Guest.Disposition d;
-        
-        d = Guest.Disposition.Neutral;
-        Debug.Log($"{d}: {GetReaction(d)}");
-        d = Guest.Disposition.Positive;
-        Debug.Log($"{d}: {GetReaction(d)}");
-        d = Guest.Disposition.Negative;
-        Debug.Log($"{d}: {GetReaction(d)}");
-        d = Guest.Disposition.Neutral;
-        Debug.Log($"{d}: {GetReaction(d)}");
-        d = Guest.Disposition.Positive;
-        Debug.Log($"{d}: {GetReaction(d)}");
-        d = Guest.Disposition.Negative;
-        Debug.Log($"{d}: {GetReaction(d)}");
-        d = Guest.Disposition.Neutral;
-        Debug.Log($"{d}: {GetReaction(d)}");
-        d = Guest.Disposition.Positive;
-        Debug.Log($"{d}: {GetReaction(d)}");
-        d = Guest.Disposition.Negative;
-        Debug.Log($"{d}: {GetReaction(d)}");
-        d = Guest.Disposition.Neutral;
-        Debug.Log($"{d}: {GetReaction(d)}");
-        d = Guest.Disposition.Positive;
-        Debug.Log($"{d}: {GetReaction(d)}");
-        d = Guest.Disposition.Negative;
-        Debug.Log($"{d}: {GetReaction(d)}");
-
     }
 
     public string GetReaction(Guest.Disposition disposition)
