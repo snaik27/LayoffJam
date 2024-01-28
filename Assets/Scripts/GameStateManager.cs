@@ -4,12 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
-    [SerializeField] private MusicManager _musicManager; 
-    [SerializeField] private MainLoopManager _mainLoopManager;
-    [SerializeField] private Deck _deck;
-    [SerializeField] private Canvas _introMenu;
-    [SerializeField] private Canvas _cardsAndDialogueUI;
-    [SerializeField] private Transform _creditsUI;
+    [SerializeField] public MusicManager _musicManager; 
+    [SerializeField] public MainLoopManager _mainLoopManager;
+    [SerializeField] public Deck _deck;
+    [SerializeField] public Guest _guest;
+    [SerializeField] public Canvas _introMenu;
+    [SerializeField] public CardAndDialogueUI _cardsAndDialogueUI;
+    [SerializeField] public Transform _creditsUI;
+    [SerializeField] public ScoreManager _scoreManager; 
 
     public static GameStateManager _instance;
     public enum GameState
@@ -21,19 +23,20 @@ public class GameStateManager : MonoBehaviour
 
     public StateMachine<GameState> _gameStateMachine; 
 
-    public void StartMainLoop()
+
+    public void MenuPlayButton_StartMainLoop()
     {
         _gameStateMachine.SetState(GameState.Main);
     } 
 
-    private void Awake()
+    private void Start()
     {
         DontDestroyOnLoad(this);
         _instance = this;
 
-        //Boot the things x
+        //Boot the things, load UI and main scene x
         //Let user switch between how to play and credits as they please x
-        //On play --> Load main scene and start main loop x
+        //On play --> Start main loop x
         //-----let main loop happen
         //Outro w king and guests
         //play again? --> Ensure different guest
@@ -60,9 +63,14 @@ public class GameStateManager : MonoBehaviour
         _musicManager.gameObject.SetActive(true); 
         _deck.gameObject.SetActive(true);
         _mainLoopManager.gameObject.SetActive(true);
-        _introMenu.gameObject.SetActive(true); 
+        _introMenu.gameObject.SetActive(true);
+        _scoreManager.gameObject.SetActive(true);
 
         _musicManager.PlayOpeningTrack();
+
+
+        // main card choose/reaction loop
+        SceneManager.LoadScene("Main", LoadSceneMode.Additive);
     }
      
     /// <summary>
@@ -70,8 +78,6 @@ public class GameStateManager : MonoBehaviour
     /// </summary>
     private void Main_Start()
     {
-        // main card choose/reaction loop
-        SceneManager.LoadScene("Main", LoadSceneMode.Additive);
         _mainLoopManager.StartMainLoop();
     } 
 

@@ -9,9 +9,9 @@ public class GuestReactions : MonoBehaviour
     public TextAsset negative;
     public TextAsset neutral;
 
-    private string[] _positiveReactions;
-    private string[] _negativeReactions;
-    private string[] _neutralReactions;
+    private string[] _positiveReactions ;
+    private string[] _negativeReactions ;
+    private string[] _neutralReactions  ;
 
     // Start is called before the first frame update
     void Start()

@@ -17,11 +17,15 @@ public class Guest : MonoBehaviour
     private Disposition[] _dispositions;
     private GuestReactions _reactions;
 
-    // Start is called before the first frame update
-    void Start()
+    public void GenerateRandomGuest()
     {
         GenerateDispositions();
         _reactions = GetComponent<GuestReactions>();
+    }
+
+    public string GetGuestReaction(int score)
+    {
+        return _reactions.GetReaction(score);
     }
 
     public Disposition GetDisposition(Card.Trait trait)
