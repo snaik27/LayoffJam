@@ -533,6 +533,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 908900700087063791, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c44ba5db82849204e99e9c095abff9bf,
+        type: 3}
     - target: {fileID: 2197242555696582000, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_Name
@@ -543,6 +549,16 @@ PrefabInstance:
       propertyPath: m_text
       value: Sid Naik
       objectReference: {fileID: 0}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
@@ -634,6 +650,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 908900700087063791, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e576e10143cb4b4a8bd019bff1b4a20,
+        type: 3}
     - target: {fileID: 2197242555696582000, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_Name
@@ -644,6 +666,16 @@ PrefabInstance:
       propertyPath: m_text
       value: Rocne Scribner
       objectReference: {fileID: 0}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
@@ -733,6 +765,21 @@ PrefabInstance:
       propertyPath: m_text
       value: Cole Martin
       objectReference: {fileID: 0}
+    - target: {fileID: 3204976512704084561, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d93fc97767654d04184f3f53bde17eb9, type: 2}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
@@ -819,6 +866,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 908900700087063791, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 97966822403eac843b4addfa71e709b8,
+        type: 3}
     - target: {fileID: 2197242555696582000, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_Name
@@ -839,6 +892,16 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
@@ -938,6 +1001,16 @@ PrefabInstance:
       propertyPath: m_text
       value: Dylan Parker
       objectReference: {fileID: 0}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
@@ -1012,6 +1085,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 908900700087063791, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a12ed26d9049cce408928f9808dc1dea,
+        type: 3}
     - target: {fileID: 2197242555696582000, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_Name
@@ -1032,6 +1111,16 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
@@ -1120,6 +1209,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 908900700087063791, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 45f39ccfbe5d72f47aada61de5c03d87,
+        type: 3}
     - target: {fileID: 2197242555696582000, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_Name
@@ -1130,6 +1225,16 @@ PrefabInstance:
       propertyPath: m_text
       value: Chris Bullock
       objectReference: {fileID: 0}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
