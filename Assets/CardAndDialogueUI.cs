@@ -8,6 +8,7 @@ public class CardAndDialogueUI : MonoBehaviour
     [SerializeField] private DialogueUI _card2;
     [SerializeField] private DialogueUI _card3;
     [SerializeField] private DialogueUI _dialogueText;
+    [SerializeField] private ScoreText _scoreText;
     [SerializeField] private DialogueUI _speakerText;
     [SerializeField] private GameObject _dialogueObject;
     [SerializeField] private GameObject _cardObject;
@@ -25,6 +26,7 @@ public class CardAndDialogueUI : MonoBehaviour
         _card2.gameObject.SetActive(true);
         _card3.gameObject.SetActive(true);
         _dialogueText.gameObject.SetActive(false);
+        _scoreText.gameObject.SetActive(false);
         
     }
 
@@ -44,6 +46,12 @@ public class CardAndDialogueUI : MonoBehaviour
         _card1.SetText(card1.DisplayString());
         _card2.SetText(card2.DisplayString());
         _card3.SetText(card3.DisplayString());
+    }
+
+    public void SetCurrentRoundScore(int score)
+    {
+        _scoreText.gameObject.SetActive(true);
+        _scoreText.SetScore(score);
     }
 
     public void SetDialogueText(string speaker, string text)

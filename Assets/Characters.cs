@@ -9,52 +9,66 @@ using UnityEngine;
 /// 
 /// </summary>
 public class Characters : MonoBehaviour
-{
-    [SerializeField] public Animator _king;
-    [SerializeField] public Animator _guest;
-    [SerializeField] public Animator _jester;
-
+{ 
+    [HideInInspector] public CharacterList _characterList;
     public static Characters _instance;
     private void Awake()
     {
         _instance = this;
     }
 
-    public void DoJesterNeutral() { }
+    public void DoJesterNeutral() 
+    {
+        _characterList._jester.SetTrigger("Neutral");
+    }
     public void DoJesterPhysicalJoke()
     {
-        Debug.Log("IMPLEMENT VISUAL: Jester does physical joke");
+        _characterList._jester.SetTrigger("Perform");
     }
 
     public void DoJesterVerbalJoke()
     {
-        Debug.Log("IMPLEMENT VISUAL: Jester does visual joke");
+        _characterList._jester.SetTrigger("Perform");
+    }
+
+    public void DoJesterPositiveReaction()
+    {
+        _characterList._jester.SetTrigger("Pos");
+    }
+    public void DoJesterNegativeReaction()
+    {
+        _characterList._jester.SetTrigger("Neg");
     }
 
     public void DoGuestPositiveReaction()
     {
-        Debug.Log("IMPLEMENT VISUAL: Guest positive reaction");
+        _characterList._currentGuest.SetTrigger("Pos");
     }
 
     public void DoGuestNeutralReaction()
     {
+        _characterList._currentGuest.SetTrigger("Neutral");
 
     }
 
     public void DoGuestNegativeReaction()
     {
-        Debug.Log("IMPLEMENT VISUAL: King negative reaction");
+        _characterList._currentGuest.SetTrigger("Neg");
     }
 
     public void DoKingPositiveReaction()
     {
-        Debug.Log("IMPLEMENT VISUAL: King positive reaction");
+        _characterList._king.SetTrigger("Pos");
     }
 
-    public void DoKingNeutralReaction() { }
+    public void DoKingNeutralReaction()
+    {
+        _characterList._king.SetTrigger("Neutral");
+
+    }
 
     public void DoKingNegativeReaction()
     {
-        Debug.Log("IMPLEMENT VISUAL: King negative reaction");
+        _characterList._king.SetTrigger("Neg");
     }
 }

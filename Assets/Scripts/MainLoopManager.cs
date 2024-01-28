@@ -167,6 +167,7 @@ public class MainLoopManager : MonoBehaviour
                 break; 
         }
 
+        _cardAndDialogueUI.SetCurrentRoundScore(currentRoundScore);
         _cardAndDialogueUI.SetDialogueText(_currentGuest.Name, guestReaction);
         if (_currentRound < _totalRounds)
         {
