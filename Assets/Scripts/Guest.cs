@@ -16,12 +16,7 @@ public class Guest : MonoBehaviour
         GenerateDispositions();
         _reactions = GetComponent<GuestReactions>();
     }
-
-    public GuestReactions.Reaction GetGuestReactionType(int score)
-    {
-        return _reactions.GetReactionType(score);
-    }
-
+     
     public string GetGuestReactionScore(int score)
     {
         return _reactions.GetReactionScore(score);

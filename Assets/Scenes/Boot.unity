@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -496,6 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123acead43423be4fb00c3715b04569c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _winThresholdInteger: 5
   _musicManager: {fileID: 5811066968304214453}
   _mainLoopManager: {fileID: 684415381}
   _deck: {fileID: 746313505}
@@ -505,6 +506,7 @@ MonoBehaviour:
   _creditsUI: {fileID: 1658352368}
   _scoreManager: {fileID: 102847711}
   _characters: {fileID: 2104032108}
+  _gameEndMenu: {fileID: 1295155302147112359}
 --- !u!1 &1733137179
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +690,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1732722627}
     m_Modifications:
+    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1732722628}
+    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MenuPlayButton_StartMainLoop
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameStateManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010285158599997107, guid: 7c17755308bcc9442a3b1dac0961a968,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4710978306807461996, guid: 7c17755308bcc9442a3b1dac0961a968,
         type: 3}
       propertyPath: m_Pivot.x
@@ -793,6 +830,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameEnd
       objectReference: {fileID: 0}
+    - target: {fileID: 6038122306583526437, guid: 7c17755308bcc9442a3b1dac0961a968,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -804,6 +846,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1295155302147112354}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1295155302147112359 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8085812532793442541, guid: 7c17755308bcc9442a3b1dac0961a968,
+    type: 3}
+  m_PrefabInstance: {fileID: 1295155302147112354}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b746040c2c03fd439a2c759a25337fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2317672207930922432
 PrefabInstance:
   m_ObjectHideFlags: 0

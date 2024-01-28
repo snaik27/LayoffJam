@@ -24,23 +24,7 @@ public class GuestReactions : MonoBehaviour
         _negativeReactions = negative.text.Split("\n");
         _neutralReactions = neutral.text.Split("\n");
     }
-
-    public Reaction GetReactionType(int score)
-    {
-        if (score < NEUTRAL_MIN_INCLUSIVE)
-        {
-            return Reaction.Negative;
-        }
-        else if (score > NEUTRAL_MAX_INCLUSIVE)
-        {
-            return Reaction.Positive;
-        }
-        else
-        {
-            return Reaction.Neutral;
-        }
-    }
-
+     
     public string GetReactionScore(int score)
     {
         switch (ScoreManager.ScoreToDisposition(score))
