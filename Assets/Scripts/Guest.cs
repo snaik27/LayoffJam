@@ -7,13 +7,6 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(GuestReactions))]
 public class Guest : MonoBehaviour
 {
-    public enum Disposition
-    {
-        Positive = 1,
-        Neutral = 0,
-        Negative = -1
-    }
-
     public string Name = "";
     private Disposition[] _dispositions;
     private GuestReactions _reactions;
