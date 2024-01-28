@@ -8,17 +8,30 @@ public class CardAndDialogueUI : MonoBehaviour
     [SerializeField] private DialogueUI _card2;
     [SerializeField] private DialogueUI _card3;
     [SerializeField] private DialogueUI _dialogueText;
+    [SerializeField] private GameObject _dialogueObject;
+    [SerializeField] private GameObject _cardObject;
 
+    private void Start()
+    {
+        _dialogueObject.SetActive(false);
+    }
     public void DisplayCardsAndHideDialogue()
     {
+        _cardObject.SetActive(true);
+        _dialogueObject.SetActive(false);
+
         _card1.gameObject.SetActive(true);
         _card2.gameObject.SetActive(true);
         _card3.gameObject.SetActive(true);
         _dialogueText.gameObject.SetActive(false);
+        
     }
 
     public void DisplayDialogueAndHideCards()
     {
+        _dialogueObject.SetActive(true);
+        _cardObject.SetActive(false);
+
         _card1.gameObject.SetActive(false);
         _card2.gameObject.SetActive(false);
         _card3.gameObject.SetActive(false);

@@ -6,17 +6,22 @@ using UnityEngine;
 
 public class MainLoopManager : MonoBehaviour
 {
-    public int _currentRound = 0;
-    public int _totalRounds = 5;
-    public Deck _cardDeck;
-    public Guest _currentGuest;
-    public CardAndDialogueUI _cardAndDialogueUI;
+
+    [HideInInspector] private int _currentRound = 0;
+    [HideInInspector] private int _totalRounds = 5;
+    private Deck _cardDeck;
+    private Guest _currentGuest;
+    private CardAndDialogueUI _cardAndDialogueUI;
+    private ScoreManager _scoreManager;
+    private Card[] _currentHand;
+    private Card _chosenCard;
 
     public enum MainLoopState
-    {
+    { 
         None,
         PickCard,                   //Choose card to advance
-        JesterJoke,                 //Click to advance
+        JesterJokeSetup,                 //Click to advance
+        JesterJokePunchline,        //Click to advance
         GuestReaction,              //Click to advance
         LoopEnd                     //Guest/King tell you if you live or not
 
@@ -24,12 +29,34 @@ public class MainLoopManager : MonoBehaviour
 
     public StateMachine<MainLoopState> _mainLoopMachine;
 
-    private void Awake()
-    {
-        _cardDeck = FindObjectOfType<Deck>();
 
+    public void CardUI_PlayCard(int index)
+    {
+        Debug.Log(_currentHand[index].Setup);
+        _chosenCard = _currentHand[index];
+        _mainLoopMachine.SetState(MainLoopState.JesterJokeSetup);
+    }
+
+    public void DialogueUI_AdvanceText()
+    {
+        if(_mainLoopMachine.CurrentState == MainLoopState.JesterJokeSetup)
+        {
+            _mainLoopMachine.SetState(MainLoopState.JesterJokePunchline);
+        }
+        else if(_mainLoopMachine.CurrentState == MainLoopState.JesterJokePunchline)
+        {
+            _mainLoopMachine.SetState(MainLoopState.GuestReaction);
+        }
+    }
+
+    private void Start()
+    {
+        _cardDeck =                 GameStateManager._instance._deck;
+        _currentGuest =             GameStateManager._instance._guest;
+        _cardAndDialogueUI =        GameStateManager._instance._cardsAndDialogueUI;
+        _scoreManager =             GameStateManager._instance._scoreManager;
+        // Choose guest --> Guest script generates new guest on awake, just refer to that when needed
         // Show Card UI
-        // Choose a guest
         // Get 3 cards
         // User chooses card
         // Display setup dialogue
@@ -42,39 +69,59 @@ public class MainLoopManager : MonoBehaviour
         _mainLoopMachine = new StateMachine<MainLoopState>(MainLoopState.None, machine =>
         {
             machine.ConfigureState(MainLoopState.PickCard, PickCard_Start, null, null);
-            machine.ConfigureState(MainLoopState.JesterJoke, JesterJoke_Start, null, null);
+            machine.ConfigureState(MainLoopState.JesterJokeSetup, JesterJokeSetup_Start, null, null);
+            machine.ConfigureState(MainLoopState.JesterJokePunchline, JesterJokePunchline_Start, null, null);
             machine.ConfigureState(MainLoopState.GuestReaction, GuestReaction_Start, null, null);
             machine.ConfigureState(MainLoopState.LoopEnd, LoopEnd_Start, null, null);
         });
     }
 
     //Pick a random guest + traits
-    //Pick 3 random cards and display
-    //Per round calculate score and move to next set of cards
+    //Create a new deck
+    //Set round and score to zero
     public void StartMainLoop()
     {
         _currentRound = 0;
-        _mainLoopMachine.SetState(MainLoopState.PickCard);
+        _cardDeck.CreateRandomDeck();
+        _currentGuest.GenerateRandomGuest();
+        _cardAndDialogueUI.gameObject.SetActive(true);
 
+        _mainLoopMachine.SetState(MainLoopState.PickCard);
     }
 
     /// <summary>
     /// Pop cards off stack
     /// Show cards
-    /// Anything else w visuals/audio/data
+    /// Anything else w visuals/audio/data 
     /// </summary>
     private void PickCard_Start()
     {
-        
+        Card[] newHand = _cardDeck.DrawCards();
+        _currentHand = newHand;
+
+        _cardAndDialogueUI.DisplayCardsAndHideDialogue();
+        _cardAndDialogueUI.SetCards(newHand[0], newHand[1], newHand[2]);
     }
 
     /// <summary>
     /// pull in dialogue and display
     /// only advance on input(probably an event we fire off from dialogue system's "continue" button)
     /// </summary>
-    private void JesterJoke_Start()
+    private void JesterJokeSetup_Start()
     {
-        
+        _cardAndDialogueUI.DisplayDialogueAndHideCards();
+        _cardAndDialogueUI.SetDialogueText(_chosenCard.Setup);
+
+    }
+
+
+    /// <summary>
+    /// show punchline
+    /// click to advance
+    /// </summary>
+    private void JesterJokePunchline_Start() 
+    {
+        _cardAndDialogueUI.SetDialogueText(_chosenCard.Punchline);
     }
 
     /// <summary>
@@ -84,20 +131,26 @@ public class MainLoopManager : MonoBehaviour
     /// </summary>
     private void GuestReaction_Start()
     {
-        
+
+        int currentRoundScore = _scoreManager.ScoreRound(_currentGuest, _chosenCard);
+        string guestReaction = _currentGuest.GetGuestReaction(currentRoundScore);
+
+        _cardAndDialogueUI.SetDialogueText(guestReaction);
+
         if(_currentRound < _totalRounds)
         {
             _currentRound++;
         }
         else
         {
-            _currentRound = 0;
             _mainLoopMachine.SetState(MainLoopState.LoopEnd);
         }
     }
 
     private void LoopEnd_Start()
     {
+        _cardAndDialogueUI.gameObject.SetActive(false);
+
         GameStateManager._instance._gameStateMachine.SetState(GameStateManager.GameState.Outro);
     }
 }

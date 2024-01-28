@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class DialogueUI : MonoBehaviour
 {
-    private TMPro.TextMeshPro _textToDisplay;
+    [SerializeField] private TMPro.TextMeshProUGUI _textToDisplay;
 
+    private void Awake()
+    {
+        _textToDisplay = GetComponent<TMPro.TextMeshProUGUI>(); 
+    }
     public void SetText(string text)
     {
         _textToDisplay.text = text;

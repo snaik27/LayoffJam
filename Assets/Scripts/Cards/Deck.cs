@@ -7,17 +7,24 @@ public class Deck : MonoBehaviour
     public TextAsset physicalJokes;
 
     private List<Card> _cards;
-    private List<Card> _discard;
+    private List<Card> _discard; 
 
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Called at start of each main loop
+    /// </summary>
+    public void CreateRandomDeck()
     {
         _cards = ReadCards();
         _discard = new List<Card>();
-
+        Shuffle();
         Debug.Log(string.Join("\n", _cards));
     }
 
+    /// <summary>
+    /// Called at start of each round of main loop
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="System.InvalidOperationException"></exception>
     public Card[] DrawCards()
     {
         if (_cards.Count < 3)
@@ -29,6 +36,10 @@ public class Deck : MonoBehaviour
         return new Card[] { _cards[0], _cards[1], _cards[2] };
     }
 
+    /// <summary>
+    /// Call after using a card
+    /// </summary>
+    /// <param name="card"></param>
     public void Discard(Card card)
     {
         _cards.Remove(card);
