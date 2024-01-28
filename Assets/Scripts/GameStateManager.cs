@@ -16,6 +16,7 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] public ScoreManager _scoreManager;
     [SerializeField] public Characters _characters;
     [SerializeField] public GameEndMenu _gameEndMenu;
+    [SerializeField] public GameObject _persistentMenu;
     public static GameStateManager _instance;
     public enum GameState
     {
@@ -77,7 +78,7 @@ public class GameStateManager : MonoBehaviour
         _scoreManager.gameObject.SetActive(true);
         _characters.gameObject.SetActive(true);
         _musicManager.PlayOpeningTrack();
-
+        _persistentMenu.SetActive(false);
 
         // main card choose/reaction loop
         SceneManager.LoadScene("Main", LoadSceneMode.Additive);
@@ -90,7 +91,8 @@ public class GameStateManager : MonoBehaviour
     {
         _mainLoopManager.StartMainLoop();
         Debug.Log(_scoreManager.TotalScore.ToString());
-    } 
+        _persistentMenu.SetActive(true);
+    }
 
     private void Outro_Start()
     {
