@@ -1362,6 +1362,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardsAndDialogueUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7671949481545997395, guid: aed8c3a0af0f3dd40babbcbdf9534720,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8503772433966487935, guid: aed8c3a0af0f3dd40babbcbdf9534720,
         type: 3}
       propertyPath: m_Pivot.x
