@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7168732582383757050
 Transform:
   m_ObjectHideFlags: 0
@@ -543,6 +543,16 @@ PrefabInstance:
       propertyPath: m_text
       value: Sid Naik
       objectReference: {fileID: 0}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
@@ -644,6 +654,16 @@ PrefabInstance:
       propertyPath: m_text
       value: Rocne Scribner
       objectReference: {fileID: 0}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
@@ -733,6 +753,21 @@ PrefabInstance:
       propertyPath: m_text
       value: Cole Martin
       objectReference: {fileID: 0}
+    - target: {fileID: 3204976512704084561, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d93fc97767654d04184f3f53bde17eb9, type: 2}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
@@ -839,6 +874,16 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
@@ -938,6 +983,16 @@ PrefabInstance:
       propertyPath: m_text
       value: Dylan Parker
       objectReference: {fileID: 0}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
@@ -1032,6 +1087,16 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
@@ -1130,6 +1195,16 @@ PrefabInstance:
       propertyPath: m_text
       value: Chris Bullock
       objectReference: {fileID: 0}
+    - target: {fileID: 4086846686102543032, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5492315042629401202, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5922603580109282810, guid: e3dd88a31e0de594ab1cf5a4e13b4a5c,
         type: 3}
       propertyPath: m_text
