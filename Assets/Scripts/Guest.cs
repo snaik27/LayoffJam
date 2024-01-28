@@ -4,22 +4,24 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(GuestReactions))]
 public class Guest : MonoBehaviour
 {
     public enum Disposition
     {
-        Positive = 2,
-        Neutral = 1,
-        Negative = -2
+        Positive = 1,
+        Neutral = 0,
+        Negative = -1
     }
 
     private Disposition[] _dispositions;
+    private GuestReactions _reactions;
 
     // Start is called before the first frame update
     void Start()
     {
         GenerateDispositions();
-        int score = 0;
+        _reactions = GetComponent<GuestReactions>();
     }
 
     public Disposition GetDisposition(Card.Trait trait)
