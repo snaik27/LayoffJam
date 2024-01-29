@@ -2,13 +2,21 @@ using UnityEngine;
 
 public class GuestReactions : MonoBehaviour
 {
-    public TextAsset positive;
-    public TextAsset negative;
-    public TextAsset neutral;
+    public TextAsset popePositive;
+    public TextAsset popeNegative;
+    public TextAsset popeNeutral;
 
-    private string[] _positiveReactions;
-    private string[] _negativeReactions;
-    private string[] _neutralReactions;
+    public TextAsset ladyPositive;
+    public TextAsset ladyNegative;
+    public TextAsset ladyNeutral;
+
+    public TextAsset bloodbeardPositive;
+    public TextAsset bloodbeardNegative;
+    public TextAsset bloodbeardNeutral;
+
+    private ReactionSet _popeReactions;
+    private ReactionSet _ladyReactions;
+    private ReactionSet _bloodbeardReactions;
 
     public enum Reaction
     {
@@ -20,42 +28,46 @@ public class GuestReactions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _positiveReactions = positive.text.Split("\n");
-        _negativeReactions = negative.text.Split("\n");
-        _neutralReactions = neutral.text.Split("\n");
+        _bloodbeardReactions = new ReactionSet(bloodbeardNegative, bloodbeardNeutral, bloodbeardPositive);
+        _ladyReactions = new ReactionSet(ladyNegative, ladyNeutral, ladyPositive);
+        _popeReactions = new ReactionSet(popeNegative, popeNeutral, popePositive);
     }
      
-    public string GetReactionScore(int score)
+    public string GetReactionScore(CharacterList.Character character, int score)
     {
-        switch (ScoreManager.ScoreToDisposition(score))
+        ReactionSet reactionSet = character switch
         {
-            case Disposition.Positive:
-                return GetPositiveReaction();
-            case Disposition.Negative:
-                return GetNegativeReaction();
-            case Disposition.Neutral:
-                return GetNeutralReaction();
-            default:
-                throw new System.InvalidOperationException("Invalid disposition");
-        }
-    }
+            CharacterList.Character.BloodBeard => _bloodbeardReactions,
+            CharacterList.Character.Lady => _ladyReactions,
+            CharacterList.Character.Pope => _popeReactions,
+            _ => throw new System.InvalidOperationException("Invalid character")
+        };
 
-    public string GetPositiveReaction()
-    {
-        return GetRandomString(_positiveReactions);
-    }
-    public string GetNegativeReaction()
-    {
-        return GetRandomString(_negativeReactions);
-    }
-
-    public string GetNeutralReaction()
-    {
-        return GetRandomString(_neutralReactions);
+        return ScoreManager.ScoreToDisposition(score) switch
+        {
+            Disposition.Positive => GetRandomString(reactionSet.Positive),
+            Disposition.Negative => GetRandomString(reactionSet.Negative),
+            Disposition.Neutral => GetRandomString(reactionSet.Neutral),
+            _ => throw new System.InvalidOperationException("Invalid disposition")
+        };
     }
 
     private string GetRandomString(string[] strings)
     {
         return strings[Random.Range(0, strings.Length)];
+    }
+
+    private class ReactionSet
+    {
+        public ReactionSet(TextAsset negative, TextAsset neutral, TextAsset positive)
+        {
+            Negative = negative.text.Split("\n");
+            Neutral = neutral.text.Split("\n");
+            Positive = positive.text.Split("\n");
+        }
+
+        public string[] Positive;
+        public string[] Negative;
+        public string[] Neutral;
     }
 }

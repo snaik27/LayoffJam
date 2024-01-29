@@ -45,9 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6305eb167f975449a2c89a10737f6c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positive: {fileID: 4900000, guid: 97fe5efe39d5af4459fda25129cdb522, type: 3}
-  negative: {fileID: 4900000, guid: d7a8fbf38940ba042aa1f3820e2f8320, type: 3}
-  neutral: {fileID: 4900000, guid: 99d94343887b5794c845217a4d7304a7, type: 3}
+  popePositive: {fileID: 4900000, guid: 5e3636850cc60014f820c1b509b06c33, type: 3}
+  popeNegative: {fileID: 4900000, guid: ebd8dde2835c8c046bc7a3d9d62aace3, type: 3}
+  popeNeutral: {fileID: 4900000, guid: 451bc0cbcc5b8f345b5e9efe7958bead, type: 3}
+  ladyPositive: {fileID: 4900000, guid: 901fcd57a988172499cf6ed5125f22d0, type: 3}
+  ladyNegative: {fileID: 4900000, guid: 5e6f861a838a6904d99bc94917a7eede, type: 3}
+  ladyNeutral: {fileID: 4900000, guid: ddb9134533e8686468cb09796d2de2ef, type: 3}
+  bloodbeardPositive: {fileID: 4900000, guid: 6dc2d00bf26622e45bbd3388bbbef312, type: 3}
+  bloodbeardNegative: {fileID: 4900000, guid: ceb7bdc0f94f3a74395a25fa0c398372, type: 3}
+  bloodbeardNeutral: {fileID: 4900000, guid: c77d1409661f4244a97093f32d7a4daa, type: 3}
 --- !u!114 &4716591577816314786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,3 +66,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5054a29dddb6e4fb01aee0409d807d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: 
