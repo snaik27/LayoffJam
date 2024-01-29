@@ -6,7 +6,8 @@ public class GameStateManager : MonoBehaviour
 {
     [SerializeField] public int _winThresholdInteger = 3;
 
-    [SerializeField] public MusicManager _musicManager; 
+    [SerializeField] public MusicManager _musicManager;
+    [SerializeField] public SFXManager _sfxManager;
     [SerializeField] public MainLoopManager _mainLoopManager;
     [SerializeField] public Deck _deck;
     [SerializeField] public Guest _guest;
@@ -71,6 +72,7 @@ public class GameStateManager : MonoBehaviour
     private void Boot_Start()
     {
         _musicManager.gameObject.SetActive(true); 
+        _sfxManager.gameObject.SetActive(true);
         _guest.gameObject.SetActive(true);
         _deck.gameObject.SetActive(true);
         _mainLoopManager.gameObject.SetActive(true);
