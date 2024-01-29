@@ -156,9 +156,10 @@ public class MainLoopManager : MonoBehaviour
     /// </summary>
     private void GuestReaction_Start()
     {
-
+        CharacterList.Character character = _characters._characterList._currentCharacter;
         int currentRoundScore = _scoreManager.ScoreRound(_currentGuest, _chosenCard);
-        string guestReaction = _currentGuest.GetGuestReactionScore(currentRoundScore);
+        
+        string guestReaction = _currentGuest.GetGuestReactionScore(character, currentRoundScore);
         Disposition guestDisposition = ScoreManager.ScoreToDisposition(currentRoundScore);
         switch (guestDisposition)
         {
