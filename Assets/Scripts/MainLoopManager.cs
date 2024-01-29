@@ -165,14 +165,17 @@ public class MainLoopManager : MonoBehaviour
             case Disposition.Positive:
                 _characters.DoKingPositiveReaction();
                 _characters.DoGuestPositiveReaction();
+                GameStateManager._instance._sfxManager.PlayCheer();
                 break;
             case Disposition.Neutral:
                 _characters.DoKingNeutralReaction();
                 _characters.DoGuestNeutralReaction();
+                GameStateManager._instance._sfxManager.PlayCrickets();
                 break;
             case Disposition.Negative:
                 _characters.DoKingNegativeReaction();
                 _characters.DoGuestNegativeReaction();
+                GameStateManager._instance._sfxManager.PlayBooh();
                 break; 
         }
 
